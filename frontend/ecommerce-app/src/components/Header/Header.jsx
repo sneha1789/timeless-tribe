@@ -10,7 +10,6 @@ import WishlistModal from '../WishlistModal/WishlistModal';
 import algoliasearch from 'algoliasearch/lite';
 import {
   InstantSearch,
-  Hits,
   connectSearchBox, 
   connectHits,    
   connectStateResults,
@@ -44,7 +43,8 @@ const CustomSearchBox = ({ currentRefinement, refine, onSearch, onFocus, onBlur 
 const ConnectedSearchBox = connectSearchBox(CustomSearchBox);
 
 
-// --- 2. THE NEW, STYLED HITS (RESULTS) COMPONENT ---
+
+
 const CustomHits = connectHits(({ hits }) => (
     <div className="search-dropdown-results">
         {hits.length > 0 && <h4 className="dropdown-section-title">Products</h4>}

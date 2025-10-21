@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-const GoogleLoginButton = ({ onSuccess, onFailure, loading }) => {
+const GoogleLoginButton = ({ onSuccess, onFailure }) => {
   useEffect(() => {
     // Load Google Identity Services script
     const script = document.createElement('script');

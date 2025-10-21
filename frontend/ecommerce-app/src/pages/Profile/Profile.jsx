@@ -443,7 +443,7 @@ const Profile = () => {
   const [editingAddress, setEditingAddress] = useState(null);
   const [showContactChangeModal, setShowContactChangeModal] = useState(false);
   const [changeType, setChangeType] = useState(null);
-  const [changeValue, setChangeValue] = useState('');
+  // const [changeValue, setChangeValue] = useState('');
   const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
   const [notification, setNotification] = useState({
     show: false,
@@ -874,14 +874,14 @@ const Profile = () => {
     }
   };
 
-  const onVerificationSuccess = (updatedUserData) => {
-    setUser(updatedUserData);
-    setShowVerifyModal(false);
-    showNotification(
-      `${verifyData.type} has been successfully verified!`,
-      'success',
-    );
-  };
+  // const onVerificationSuccess = (updatedUserData) => {
+  //   setUser(updatedUserData);
+  //   setShowVerifyModal(false);
+  //   showNotification(
+  //     `${verifyData.type} has been successfully verified!`,
+  //     'success',
+  //   );
+  // };
 
   const handleSetPassword = async (e) => {
     e.preventDefault();
