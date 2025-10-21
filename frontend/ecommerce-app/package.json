@@ -3,11 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@humanwhocodes/config-array": "^0.13.0",
+    "@humanwhocodes/object-schema": "^2.0.3",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "abab": "^2.0.6",
     "algoliasearch": "^4.25.2",
+    "eslint": "^9.38.0",
+    "glob": "^11.0.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-google-recaptcha": "^3.1.0",
@@ -15,8 +20,12 @@
     "react-instantsearch-dom": "^6.40.4",
     "react-router-dom": "^7.9.4",
     "react-slick": "^0.30.2",
+    "rimraf": "^6.0.1",
     "slick-carousel": "^1.8.1",
-    "web-vitals": "^2.1.4"
+    "source-map": "^0.7.6",
+    "web-vitals": "^2.1.4",
+    "workbox-cacheable-response": "^7.3.0",
+    "workbox-google-analytics": "^7.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -44,6 +53,24 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-transform-class-properties": "^7.27.1",
+    "@babel/plugin-transform-nullish-coalescing-operator": "^7.27.1",
+    "@babel/plugin-transform-numeric-separator": "^7.27.1",
+    "@babel/plugin-transform-optional-chaining": "^7.27.1",
+    "@babel/plugin-transform-private-methods": "^7.27.1",
     "react-scripts": "^5.0.1"
+  },
+"babel": {
+    "plugins": [
+      "@babel/plugin-transform-class-properties",
+      "@babel/plugin-transform-private-methods",
+      "@babel/plugin-transform-optional-chaining",
+      "@babel/plugin-transform-nullish-coalescing-operator",
+      "@babel/plugin-transform-numeric-separator"
+    ]
   }
+  
 }
+
+
+
