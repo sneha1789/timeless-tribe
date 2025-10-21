@@ -1,0 +1,222 @@
+:root {
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Lato', sans-serif;
+  --color-text: #3d352e;
+  --color-accent: #c77d57;
+  --color-background: #f4f1ed;
+  --color-muted: #a39b91;
+} /* Add this to your ProductCard.css file */
+.product-card-wrapper {
+  text-decoration: none;
+  color: inherit;
+}
+.product-card {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+  background: #fff;
+}
+.product-card:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+.product-image {
+  position: relative;
+  overflow: hidden;
+}
+.product-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+.discount-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #e53935;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+.wishlist-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #555;
+  transition: color 0.3s, background 0.3s;
+}
+.wishlist-btn.active {
+  color: #ff3f6c;
+}
+.product-info {
+  padding: 1rem;
+}
+.artisan-name {
+  font-size: 0.8rem;
+  color: #777;
+  margin-bottom: 0.5rem;
+}
+.product-name {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  height: 2.5em;
+  overflow: hidden;
+}
+.product-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+}
+.stars-wrapper-small {
+  color: #ccc;
+}
+.stars-wrapper-small.rating-excellent {
+  color: #2e7d32;
+}
+.stars-wrapper-small.rating-good {
+  color: #f59e0b;
+}
+.stars-wrapper-small.rating-mid {
+  color: #f97316;
+}
+.stars-wrapper-small.rating-low {
+  color: #ef4444;
+}
+.rating-count {
+  color: #777;
+}
+.product-price {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.original-price {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
+}
+.variant-count,
+.low-stock-warning {
+  font-size: 0.8rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+.low-stock-warning {
+  color: #d9534f;
+  font-weight: 600;
+}
+.add-to-cart-btn {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--color-text);
+  background-color: var(--color-text);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  margin-top: auto;
+}
+.add-to-cart-btn:hover {
+  background-color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+}
+.add-to-cart-btn.go-to-cart {
+  background-color: var(--color-text);
+  border-color: var(--color-text);
+}
+.add-to-cart-btn:disabled {
+  background-color: #ccc;
+  border-color: #ccc;
+  cursor: not-allowed;
+}
+
+.product-info {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.artisan-name {
+  font-size: 0.8rem;
+  color: #777;
+  margin-bottom: 0.5rem;
+}
+
+.product-name {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  height: 2.5em;
+  overflow: hidden;
+}
+
+.product-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.product-price {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.product-meta {
+  min-height: 2.5em;
+  font-size: 0.8rem;
+}
+
+.variant-count {
+  color: #555;
+}
+
+.low-stock-warning {
+  color: #d9534f;
+  font-weight: 600;
+}
+
+.product-info {
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+
+  flex-grow: 1;
+}
+
+.product-meta {
+  min-height: 2.5em;
+  font-size: 0.8rem;
+}
+
+.variant-count {
+  color: #555;
+}
+
+.low-stock-warning {
+  color: #d9534f;
+  font-weight: 600;
+}

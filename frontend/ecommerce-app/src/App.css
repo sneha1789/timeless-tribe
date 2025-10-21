@@ -1,0 +1,81 @@
+/* Global styles from your style.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+
+/* ... your other imports and styles ... */
+
+/* Your existing CSS variables and styles */
+:root {
+  --font-heading: 'Lora', serif;
+ --font-body: 'Nunito Sans', sans-serif;
+  --font-brand: 'Playfair Display', Georgia, serif;
+  --font-secondary: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  --accent-red: #e53935;
+  --accent-red-dark: #b91c1c;
+}
+
+
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Make the app container at least as tall as the viewport */
+}
+
+main {
+  flex: 1; /* Allow the main content area to grow and push the footer down */
+  width: 100%;
+}
+
+
+body {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.7;
+  color: #a78a6d;
+  background: #f8f8f8;
+}
+
+.current-price, .product-price, .order-total {
+  font-family: var(--font-body);
+  font-weight: 700;
+}
+
+.nav-link, .cta-button, .sidebar-link, .action-btn, .login-btn {
+  font-family: var(--font-body);
+  font-weight: 600; /* Bolder for UI */
+  letter-spacing: 0.5px; /* Adds a professional touch */
+}
+
+
+/* Headings */
+h1, h2, h3, .product-title, .profile-section h2, .widget-header h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+/* Subheadings */
+h4, h5, h6 {
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
+/* Body, Buttons, Nav */
+body, p, span, div, button, input, textarea, select, a, li {
+  font-family: var(--font-body);
+}

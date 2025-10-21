@@ -1,0 +1,158 @@
+/* === Main Footer Styling === */
+.site-footer {
+    background-color: #2d3748; /* Restored to the previous, lighter dark blue */
+    color: #a0aec0; /* A soft, light gray for readability */
+    padding: 4rem 1.5rem 1.5rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* === Main Content Grid === */
+.footer-main {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr; /* First column is wider */
+    gap: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid #4a5568; /* A slightly lighter border for the new background */
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-heading {
+    color: #ffffff; /* White headings */
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.5px;
+}
+
+.footer-about-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    max-width: 350px;
+}
+
+/* === Social Media Icons === */
+.footer-social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto; /* Pushes icons to the bottom of the column */
+}
+
+.footer-social-links a {
+    color: #a0aec0;
+    font-size: 1.25rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-social-links a:hover {
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* === Link Lists === */
+.footer-link-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.footer-link-list a {
+    color: #a0aec0;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.footer-link-list a:hover {
+    color: #ffffff;
+
+}
+
+/* === Bottom Bar === */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.5rem;
+    flex-wrap: wrap; /* Allows stacking on small screens */
+    gap: 1rem;
+}
+
+.footer-copyright,
+.footer-policies a {
+    font-size: 0.875rem;
+    color: #718096; /* A slightly darker gray */
+}
+
+.footer-policies a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-policies a:hover {
+    color: #a0aec0;
+}
+
+.footer-policies .separator {
+    margin: 0 0.5rem;
+}
+
+/* === Payment Methods Icons === */
+.footer-payment-methods {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.footer-payment-methods img {
+    height: 24px;
+   
+}
+
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+    .site-footer {
+        padding: 3rem 1rem 1rem;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr; /* Stack columns on mobile */
+        text-align: center;
+        gap: 2.5rem;
+    }
+
+    .footer-about {
+        align-items: center;
+    }
+    
+    .footer-about-text {
+        max-width: 100%;
+    }
+
+    .footer-social-links {
+        justify-content: center;
+        margin-top: 1.5rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1.25rem;
+        padding-top: 2rem;
+    }
+}
+

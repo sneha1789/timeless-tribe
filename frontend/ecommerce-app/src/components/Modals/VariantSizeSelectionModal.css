@@ -1,0 +1,206 @@
+/* ----- 1. FONT & COLOR VARIABLES (Optional but helpful) ----- */
+:root {
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Lato', sans-serif;
+  --color-text: #3d352e; /* Deep Brown */
+  --color-accent: #c77d57; /* Terracotta */
+  --color-background: #f4f1ed; /* Paper White */
+  --color-muted: #a39b91; /* Muted Grey-Brown */
+}
+.options-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+  animation: fadeIn 0.3s ease;
+}
+
+.options-modal-content {
+  background: white;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.om-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.om-header h4 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-family: 'Playfair Display', serif;
+  color: #3d352e;
+}
+
+.om-close-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  line-height: 1;
+  color: #aaa;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.om-close-btn:hover {
+  color: #333;
+}
+
+.om-body {
+  display: flex;
+  padding: 1.5rem;
+  gap: 1.5rem;
+}
+
+.om-image {
+  flex-shrink: 0;
+  width: 150px;
+  height: 180px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #f4f1ed;
+}
+
+.om-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.om-selectors {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.om-variant-selector,
+.om-size-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.om-selectors label {
+  font-weight: 600;
+  color: #4a5568;
+}
+
+.om-variant-swatches {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.om-swatch {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid #e2e8f0;
+  padding: 2px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: #fff;
+}
+
+.om-swatch img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.om-swatch.active {
+  border-color: #c77d57;
+  transform: scale(1.1);
+}
+
+.om-size-options {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.om-size-btn {
+  padding: 8px 16px;
+  border: 1px solid #cbd5e0;
+  background-color: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.om-size-btn:hover:not(:disabled) {
+  border-color: #c77d57;
+  color: var(--color-text);
+}
+
+.om-size-btn.active {
+  background-color: #3d352e;
+  border-color: #3d352e;
+  color: white;
+}
+
+.om-size-btn:disabled {
+  background-color: #f7fafc;
+  color: #cbd5e0;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+.om-footer {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #e2e8f0;
+  background-color: #f8f9fa;
+}
+
+.om-action-btn {
+  flex: 1;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.om-add-new-btn {
+  background-color: #fff;
+  color: var( --color-text);
+  border: 2px solid var( --color-text);
+}
+.om-add-new-btn:hover:not(:disabled) {
+   background-color: var( --color-accent);
+   color: white;
+   border: none;
+}
+
+.om-done-btn {
+  background-color: var( --color-text);
+  color: white;
+}
+.om-done-btn:hover:not(:disabled) {
+  background-color: var( --color-accent);
+}
+
+.om-size-btn:disabled {
+  background-color: #f7fafc;
+  color: #a0aec0;
+  cursor: not-allowed;
+  text-decoration: line-through;
+  opacity: 0.7;
+}

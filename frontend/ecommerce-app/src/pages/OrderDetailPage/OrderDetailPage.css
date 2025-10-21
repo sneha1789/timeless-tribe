@@ -1,0 +1,345 @@
+.order-detail-page {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+.breadcrumb {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb span {
+  color: #333;
+}
+
+.order-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.order-detail-header h1 {
+  font-size: 1.8rem;
+  color: #333;
+  margin: 0;
+}
+
+.cancel-order-btn {
+  border-color: var(--danger-color, #dc3545);
+  color: var(--danger-color, #dc3545);
+}
+
+.cancel-order-btn:hover {
+  background-color: #fbebed;
+  color: #a71d2a;
+}
+
+.order-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 2rem;
+}
+
+.detail-section {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.detail-section h3 {
+  font-size: 1.1rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #444;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.shipping-details p,
+.payment-details p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.shipping-details strong,
+.payment-details strong {
+  color: #333;
+}
+
+.delivery-estimate {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed #eee;
+  font-size: 0.9rem;
+  color: #4caf50;
+  font-weight: 500;
+}
+.delivery-estimate i {
+  margin-right: 0.5rem;
+}
+
+.track-package-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+.track-package-link i {
+  margin-left: 0.3rem;
+  font-size: 0.8rem;
+}
+.track-package-link:hover {
+  text-decoration: underline;
+}
+
+.payment-status {
+  font-weight: 600;
+  text-transform: capitalize;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+.payment-status.pending {
+  background-color: #fff3e0;
+  color: #ef6c00;
+}
+.payment-status.paid {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+.payment-status.failed {
+  background-color: #ffebee;
+  color: #c62828;
+}
+.payment-status.refunded {
+  background-color: #e3f2fd;
+  color: #1565c0;
+}
+
+.download-invoice-btn {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.items-ordered .order-item-detail-card {
+  display: flex;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+.items-ordered .order-item-detail-card:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.order-item-detail-card .item-image-link img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 1rem;
+}
+
+.order-item-detail-card .item-info {
+  flex-grow: 1;
+}
+
+.item-info .item-name {
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.item-info .item-name:hover {
+  color: var(--primary-color);
+}
+
+.item-info .item-variant-size,
+.item-info .item-qty {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 0.3rem;
+}
+.item-pricing {
+  margin-top: 0.5rem;
+}
+.item-pricing .current-price {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.95rem;
+}
+.item-pricing .original-price {
+  font-size: 0.85rem;
+  color: #888;
+  text-decoration: line-through;
+  margin-left: 0.5rem;
+}
+
+.order-item-detail-card .item-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-left: 1rem;
+}
+
+.item-actions .action-link {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  text-align: right;
+}
+.item-actions .action-link:hover {
+  text-decoration: underline;
+}
+
+.price-summary .summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+  color: #555;
+}
+.price-summary .summary-row span:last-child {
+  font-weight: 500;
+  color: #333;
+}
+
+.price-summary .summary-row.discount span:last-child,
+.price-summary .summary-row.coupon span:last-child {
+  color: #4caf50;
+}
+
+.price-summary .free-shipping {
+  color: #4caf50;
+  font-weight: 600;
+}
+
+.summary-divider {
+  border: none;
+  border-top: 1px dashed #ddd;
+  margin: 1rem 0;
+}
+
+.price-summary .summary-row.total {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin-top: 1rem;
+}
+.price-summary .summary-row.total span:last-child {
+  font-size: 1.2rem;
+}
+
+.order-detail-error {
+  text-align: center;
+  padding: 3rem;
+  color: var(--danger-color, #dc3545);
+}
+
+.order-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.order-detail-header h1 {
+  margin: 0;
+  flex-grow: 1;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.order-detail-status-tag {
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  text-transform: capitalize;
+}
+
+.order-detail-status-tag i {
+  margin-right: 0.5rem;
+}
+
+.order-detail-status-tag.processing {
+  background-color: #e3f2fd;
+  color: #1565c0;
+}
+.order-detail-status-tag.shipped {
+  background-color: #fff3e0;
+  color: #ef6c00;
+}
+.order-detail-status-tag.delivered {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+.order-detail-status-tag.cancelled,
+.order-detail-status-tag.failed {
+  background-color: #ffebee;
+  color: #c62828;
+}
+.order-detail-status-tag.pending {
+  background-color: #f5f5f5;
+  color: #616161;
+}
+.order-detail-status-tag.on-hold {
+  background-color: #f3e5f5;
+  color: #6a1b9a;
+}
+.order-detail-status-tag.unknown {
+  background-color: #eceff1;
+  color: #546e7a;
+}
+
+.cancel-order-btn {
+  border-color: var(--danger-color, #dc3545);
+  color: var(--danger-color, #dc3545);
+  font-weight: 600;
+}
+
+.cancel-order-btn:hover {
+  background-color: #fbebed;
+  color: #a71d2a;
+}
+.cancel-order-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

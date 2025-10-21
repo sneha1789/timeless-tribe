@@ -1,0 +1,1594 @@
+/* ----- 1. FONT & COLOR VARIABLES (Optional but helpful) ----- */
+:root {
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Lato', sans-serif;
+  --color-text: #3d352e; /* Deep Brown */
+  --color-accent: #c77d57; /* Terracotta */
+  --color-background: #f4f1ed; /* Paper White */
+  --color-muted: #a39b91; /* Muted Grey-Brown */
+}
+
+/* ===== CATEGORIES PAGE LAYOUT ===== */
+.categories-page {
+  padding: 40px 0;
+  background: #f8f9fa;
+  min-height: 100vh;
+}
+
+.categories-container {
+  max-width: 1600px; /* Increased to accommodate 5 products */
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 30px;
+}
+
+/* ===== FILTERS SIDEBAR ===== */
+.filters-sidebar {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+  position: sticky;
+  top: 120px; /* Adjusted to position better on the screen */
+  left: 20px; /* Added to position from left */
+  margin-left: 0; /* Ensure it stays on the left */
+}
+
+.filter-group {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 25px;
+}
+
+.filter-group:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.filter-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Price Filter */
+.price-slider-container {
+  position: relative;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.price-slider {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: #ddd;
+  border-radius: 2px;
+  outline: none;
+}
+
+.price-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  background: #d32f2f;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.price-display {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.filter-apply-btn {
+  width: 100%;
+  background: #333;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.filter-apply-btn:hover {
+  background: #d32f2f;
+}
+
+/* Material Select */
+.material-select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  background: white;
+}
+
+/* Category Options */
+.category-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.category-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+}
+
+.category-option input {
+  margin: 0;
+}
+
+/* ===== PRODUCTS MAIN CONTENT ===== */
+.products-main {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Products Header */
+.products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.breadcrumb {
+  font-size: 14px;
+  color: #666;
+}
+
+.breadcrumb a {
+  color: #d32f2f;
+  text-decoration: none;
+}
+
+.breadcrumb span {
+  color: #333;
+  font-weight: 600;
+}
+
+.products-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.show-options {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.show-option {
+  color: #666;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+.show-option.active {
+  background: #d32f2f;
+  color: white;
+}
+
+.view-options {
+  display: flex;
+  gap: 5px;
+}
+
+.view-btn {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.view-btn.active {
+  background: #d32f2f;
+  color: white;
+  border-color: #d32f2f;
+}
+
+.sort-select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+/* ===== PRODUCTS GRID - 5 PER ROW ===== */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Changed to 5 columns */
+  gap: 20px; /* Slightly reduced gap to fit 5 products */
+  margin: 30px 0;
+}
+
+/* ----- 2. THE PRODUCT CARD ----- */
+.product-card {
+  background-color: var(--color-background);
+  border-radius: 6px;
+  border: 1px solid #eae3da;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Hide rating and wishlist on hover to focus on the images */
+.product-card:hover .product-rating,
+.product-card:hover .wishlist-btn {
+  opacity: 0;
+}
+
+/* ----- 3. PRODUCT IMAGE & CAROUSEL ----- */
+.product-image {
+  position: relative;
+  width: 100%;
+  height: 270px; /* Slightly adjusted height */
+  background-color: #fff; /* A clean backdrop for the image */
+}
+
+/* Also update the image rule inside it */
+.product-image img {
+  max-width: 100%;
+  max-height: 260px; /* MODIFIED: Increased max-height from 180px */
+  object-fit: contain;
+}
+
+.sold-out-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #d32f2f;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* ===== START: New Product Rating Styles ===== */
+.product-rating {
+  position: absolute;
+  bottom: 18px; /* ADJUST THIS to move it up/down */
+  left: 5px; /* ADJUST THIS to move it left/right */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.95
+  ); /* Semi-transparent white background */
+  padding: 3px 8px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 700;
+  z-index: 5;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+
+  /* NEW: Make rating transition smoothly */
+  opacity: 1; /* Visible by default */
+  transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+/* NEW: Hide rating on product card hover */
+.product-card:hover .product-rating {
+  opacity: 0; /* Hidden on hover */
+}
+
+.product-rating .rating-star {
+  font-size: 11px;
+  margin-left: 5px;
+}
+
+/* ===== START: New Dynamic Rating Color Styles ===== */
+
+/* For Low Ratings (e.g., 0 to 2.5) -> RED */
+.product-rating.rating-low .rating-star {
+  color: #d32f2f;
+}
+
+/* For Mid Ratings (e.g., 2.5 to 3.5) -> YELLOW / ORANGE */
+.product-rating.rating-mid .rating-star {
+  color: #f5a623;
+}
+
+/* For Good Ratings (e.g., 3.5 to 4.5) -> LIGHT GREEN */
+.product-rating.rating-good .rating-star {
+  color: #7ed321;
+}
+
+/* For Excellent Ratings (e.g., 4.5 to 5) -> DARK GREEN */
+.product-rating.rating-excellent .rating-star {
+  color: #1aab2a;
+}
+/* ===== END: New Dynamic Rating Color Styles ===== */
+
+.product-rating .rating-separator {
+  color: #e0e0e0; /* Light grey separator */
+  margin: 0 5px;
+}
+
+.product-rating .rating-count {
+  color: #555;
+  font-weight: 400; /* Lighter font weight for the count */
+}
+/* ===== END: New Product Rating Styles ===== */
+
+/* ===== START: Hover Carousel Styles ===== */
+
+/* Ensure the image container is on the base layer */
+.product-image .carousel-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1; /* Sets its stacking order to the bottom */
+}
+
+.product-image .carousel-track {
+  display: flex;
+  height: 100%;
+  /* MODIFIED: Increased transition duration for smoother slide */
+  transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1); /* Smoother ease-in-out */
+}
+
+.product-image .carousel-track img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Use 'contain' to see the whole image */
+  flex-shrink: 0;
+}
+
+.product-card > .carousel-dots {
+  position: absolute;
+  /* This positions it right on the dividing line */
+  top: 265px;
+  left: 50%;
+  transform: translate(-50%, -50%); /* This perfectly centers it on the line */
+
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  /* These are your existing styles, just moved here */
+  display: flex;
+  gap: 8px;
+}
+
+.story-icon-container {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 15;
+  background: #fff;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+.story-icon-container .fa-book-open {
+  color: var(--color-text);
+}
+.story-icon-container .story-tooltip {
+  visibility: hidden;
+  opacity: 0;
+  width: 200px;
+  background-color: var(--color-text);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -100px;
+  transition: opacity 0.3s;
+}
+.story-icon-container:hover .story-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Show dots ONLY on hover of the parent card */
+.product-card:hover .carousel-dots {
+  opacity: 1;
+}
+
+/* Individual dot style */
+.carousel-dots .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #d1d1d1;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+}
+
+.carousel-dots .dot.active {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+/* Keep wishlist button in its corner */
+.wishlist-btn {
+  bottom: 12px;
+  right: 12px;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* ===== END: Hover Carousel Styles ===== */
+
+/* Wishlist Button - Bottom Right Corner */
+.wishlist-btn {
+  position: absolute;
+  bottom: 14px;
+  right: 3px;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.wishlist-btn .fa-heart {
+  color: #d32f2f;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.wishlist-btn:hover {
+  background: #ffeaea;
+  transform: scale(1.1);
+}
+
+.wishlist-btn.active .fa-heart {
+  font-weight: 900;
+}
+
+/* ----- 5. PRODUCT INFO (The biggest change is here) ----- */
+.product-info {
+  padding: 20px;
+  text-align: left; /* Shift from centered to left-aligned for a more editorial feel */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #eae3da;
+}
+
+.product-name {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.artisan-info {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  margin-bottom: 12px;
+}
+.artisan-info i {
+  margin-right: 5px;
+}
+
+/* ----- 6. NEW DETAILED PRICE STYLES ----- */
+.product-price {
+  display: flex;
+  justify-content: flex-start; /* Aligned to the left */
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.current-price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-accent); /* Main price is now the accent color */
+  font-family: var(--font-body);
+}
+.original-price {
+  font-size: 1rem;
+  color: var(--color-muted);
+  text-decoration: line-through;
+  font-family: var(--font-body);
+}
+
+/* The discount text (e.g., (Rs. 1800 OFF)) */
+.discount-tag {
+  font-size: 14px; /* Same size as original price */
+  font-weight: 700; /* Bold */
+  color: #ff905a; /* Myntra's orange color for the discount */
+}
+
+/* ===== END: New Detailed Price Styles ===== */
+
+/* ----- 7. ADD TO CART BUTTON ----- */
+.add-to-cart-btn {
+  background: #e53935;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+  margin-top: auto; /* Pushes button to the bottom */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.add-to-cart-btn:hover {
+  background: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Added State - Light grey with black text and tick */
+.add-to-cart-btn.added {
+  background: #f8f9fa !important;
+  color: #000000 !important;
+  border: 2px solid #e9ecef !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.add-to-cart-btn.added:hover {
+  background: #e9ecef !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* --- NEW STYLES FOR PAGINATION --- */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.pagination button {
+  background-color: #e53935; /* Theme color */
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.2s;
+  display: flex; /* For arrow and text alignment */
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: var(--color-accent); /* Darker shade on hover */
+  transform: translateY(-2px);
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+  transform: none; /* No hover effect when disabled */
+}
+
+.pagination span {
+  font-size: 1rem;
+  color: #555;
+  font-weight: 500;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1400px) {
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1200px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .categories-container {
+    grid-template-columns: 1fr;
+  }
+
+  .filters-sidebar {
+    position: static;
+    margin-bottom: 20px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .products-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .products-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .product-image {
+    height: 180px;
+    padding: 15px;
+  }
+
+  .product-info {
+    padding: 15px 10px;
+  }
+
+  .product-name {
+    font-size: 1rem;
+  }
+
+  .add-to-cart-btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    max-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .categories-container {
+    padding: 0 15px;
+  }
+
+  .products-main,
+  .filters-sidebar {
+    padding: 15px;
+  }
+
+  .products-controls {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .product-image {
+    height: 200px;
+  }
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  text-align: center;
+  padding: 50px;
+  font-size: 18px;
+  color: #666;
+}
+
+/* No Products */
+.no-products {
+  text-align: center;
+  padding: 50px;
+  grid-column: 1 / -1;
+}
+
+.no-products h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.no-products p {
+  color: #666;
+}
+
+/* ===== FONT SIZE FIXES FOR PRODUCT CARDS ===== */
+
+/* Product Name - Make it smaller like in your first screenshot */
+.product-name {
+  font-family: var(--font-heading);
+  font-size: 0.95rem !important; /* Reduced from 1.15rem */
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+/* Price Section - Make prices smaller */
+.product-price {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  gap: 8px; /* Reduced from 10px */
+  margin-bottom: 12px; /* Reduced from 15px */
+  flex-wrap: wrap;
+}
+
+.current-price {
+  font-size: 1.1rem !important; /* Reduced from 1.25rem */
+  font-weight: 700;
+  color: var(--color-accent);
+  font-family: var(--font-body);
+}
+
+.original-price {
+  font-size: 0.9rem !important; /* Reduced from 1rem */
+  color: var(--color-muted);
+  text-decoration: line-through;
+  font-family: var(--font-body);
+}
+
+.discount-tag {
+  font-size: 0.8rem !important; /* Reduced from 14px */
+  font-weight: 700;
+  color: #ff905a;
+}
+
+/* Artisan info - Make it smaller */
+.artisan-info {
+  font-family: var(--font-body);
+  font-size: 0.75rem !important; /* Reduced from 0.8rem */
+  color: var(--color-muted);
+  margin-bottom: 10px; /* Reduced from 12px */
+}
+
+/* Add to cart button - Adjust size */
+.add-to-cart-btn {
+  background: var(--color-text);
+  color: #fff;
+  border: none;
+  padding: 8px 12px !important;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.8rem !important;
+  transition: all 0.3s;
+  margin-top: auto;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.product-card {
+  background-color: var(--color-background);
+  border-radius: 6px;
+  border: 1px solid #eae3da;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.product-info {
+  padding: 15px !important;
+  text-align: left;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #eae3da;
+}
+
+.product-rating {
+  position: absolute;
+  bottom: 18px;
+  left: 5px;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 3px 8px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  font-size: 0.75rem !important;
+  font-weight: 700;
+  z-index: 5;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.categories-page * {
+  box-sizing: border-box;
+}
+
+.categories-page {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap');
+
+.product-card:hover .product-rating {
+  opacity: 0;
+}
+
+.product-card:hover .wishlist-btn {
+  opacity: 1;
+}
+
+.product-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.product-card-link:hover {
+  text-decoration: none;
+}
+
+.testimonials-section {
+  padding: 4rem 0;
+  background-color: #f8f9fa;
+}
+
+.testimonials-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.testimonials-title {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+  color: #3d352e;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.testimonial-card {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-card .testimonial-stars {
+  color: #f59e0b;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.testimonial-card p {
+  font-style: italic;
+  color: #555;
+  flex-grow: 1;
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.testimonial-avatar,
+.testimonial-avatar-placeholder {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.testimonial-avatar-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e9ecef;
+  color: #6c757d;
+  font-size: 1.5rem;
+}
+
+.author-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.author-details span {
+  font-weight: 600;
+  color: #3d352e;
+}
+
+.author-details small {
+  color: #6c757d;
+}
+
+/* --- NEW STYLES FOR SORT DROPDOWN --- */
+.sort-select {
+  padding: 0.75rem 2.5rem 0.75rem 1rem; /* Increased right padding for custom arrow */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  background-color: #fff;
+  cursor: pointer;
+  -webkit-appearance: none; /* Remove default arrow on WebKit browsers */
+  -moz-appearance: none; /* Remove default arrow on Firefox */
+  appearance: none; /* Remove default arrow */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23666'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E"); /* Custom arrow */
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Material Select */
+.material-select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  background-color: #fff;
+  cursor: pointer;
+  -webkit-appearance: none; /* Remove default arrow on WebKit browsers */
+  -moz-appearance: none; /* Remove default arrow on Firefox */
+  appearance: none; /* Remove default arrow */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23666'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E"); /* Custom arrow */
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px;
+}
+
+.material-select:focus {
+  outline: none;
+  border-color: #ff3f6c;
+  box-shadow: 0 0 0 2px rgba(255, 63, 108, 0.2);
+}
+
+/* --- NEW STYLES FOR PRICE FILTER INPUTS --- */
+.price-range-inputs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.price-range-inputs input[type='number'] {
+  width: 80px; /* Adjust width as needed */
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+/* Hide Chrome/Safari number input arrows */
+.price-range-inputs input[type='number']::-webkit-outer-spin-button,
+.price-range-inputs input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.price-range-inputs input[type='number']:focus {
+  outline: none;
+  border-color: #ff3f6c; /* Theme color on focus */
+  box-shadow: 0 0 0 2px rgba(255, 63, 108, 0.2);
+}
+
+.price-range-inputs span {
+  color: #777;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* --- NEW STYLES FOR PRICE SLIDER --- */
+.price-slider-wrapper {
+  padding: 1rem 0.5rem;
+}
+
+.horizontal-slider {
+  width: 100%;
+  height: 6px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  margin-top: 1rem;
+}
+
+.slider-track {
+  top: 0;
+  bottom: 0;
+  background: #ff3f6c; /* Theme color for the track */
+  border-radius: 3px;
+}
+
+.slider-thumb {
+  width: 50px;
+  height: 24px;
+  line-height: 20px;
+  text-align: center;
+  background-color: #fff;
+  color: #333;
+  border-radius: 4px;
+  cursor: grab;
+  border: 1px solid #ccc;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  top: -9px; /* Center the thumb vertically */
+  font-size: 0.75rem;
+  padding-top: 2px;
+}
+
+.slider-thumb:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 63, 108, 0.3);
+}
+
+/* Add these styles for the infinite scroll loader */
+
+.infinite-scroll-loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    height: 80px; /* Reserve space at the bottom */
+}
+
+.loading-spinner-small {
+    width: 30px;
+    height: 30px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #ff3f6c; /* Theme color */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.end-of-results {
+    color: #777;
+    font-weight: 500;
+}
+
+/* --- ALGOLIA WIDGET STYLES --- */
+
+/* General Widget Styling */
+.ais-Panel-header {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Clear Refinements Button */
+.ais-ClearRefinements-button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #f1f1f1;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.ais-ClearRefinements-button:hover {
+  background-color: #e0e0e0;
+}
+.ais-ClearRefinements-button--disabled {
+  display: none;
+}
+
+/* Refinement List (Categories) */
+.ais-RefinementList-list {
+  list-style: none;
+  padding: 0;
+}
+.ais-RefinementList-item {
+  margin-bottom: 0.75rem;
+}
+.ais-RefinementList-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.ais-RefinementList-checkbox {
+  margin-right: 0.8rem;
+  width: 18px;
+  height: 18px;
+  accent-color: #e53935;
+}
+.ais-RefinementList-labelText {
+  font-size: 0.95rem;
+  color: #555;
+}
+.ais-RefinementList-count {
+  margin-left: auto;
+  font-size: 0.8rem;
+  color: #999;
+  background-color: #f5f5f5;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Price Range Input */
+.ais-RangeInput-form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.ais-RangeInput-input {
+  width: 80px;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+.ais-RangeInput-separator {
+  color: #777;
+  font-weight: bold;
+}
+.ais-RangeInput-button {
+  padding: 0.6rem 1rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* SortBy and Stats Widgets */
+.search-results-info {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.ais-Stats-text {
+  font-size: 0.95rem;
+  color: #555;
+}
+.ais-SortBy-select {
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  background-color: #fff;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23666'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px;
+}
+
+/* Pagination */
+.pagination { /* Re-using your existing pagination class */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+.ais-Pagination-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: 0.5rem;
+}
+.ais-Pagination-item a, .ais-Pagination-item span {
+    display: block;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+.ais-Pagination-item a:hover {
+    background-color: #f5f5f5;
+}
+.ais-Pagination-item--selected a {
+    background-color: #e53935;
+    color: white;
+    border-color: #e53935;
+}
+.ais-Pagination-item--disabled span {
+    color: #ccc;
+}
+
+/* In your Category.css file */
+.categories-page .products-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+.search-page .products-grid .ais-Hits-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  
+
+  
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+.search-page .products-grid {
+  display: block;
+}
+
+.search-page .ais-Hits-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+
+  /* Reset browser default list styles */
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.search-page .ais-Hits-item {
+  display: block;
+}
+
+/* ... existing code ... */
+
+/* --- NEW STYLES FOR PRICE SLIDER --- */
+.price-slider-wrapper {
+  padding: 1rem 0.5rem;
+}
+
+.rc-slider {
+  position: relative;
+  height: 14px;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.rc-slider-rail {
+  position: absolute;
+  width: 100%;
+  background-color: #e9e9e9;
+  height: 4px;
+  border-radius: 6px;
+}
+
+.rc-slider-track {
+  position: absolute;
+  height: 4px;
+  border-radius: 6px;
+  background-color: #c77d57; /* Your theme's accent color */
+}
+
+.rc-slider-handle {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  margin-top: -5px;
+  background-color: #fff;
+  border: solid 2px #c77d57;
+  border-radius: 50%;
+  cursor: grab;
+  touch-action: pan-x;
+}
+.rc-slider-handle:focus {
+  outline: none;
+  box-shadow: 0 0 0 5px rgba(199, 125, 87, 0.2);
+}
+
+.price-display {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+
+/* --- NEW STYLES FOR ACTIVE FILTER PILLS --- */
+.current-refinements {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.refinement-pill {
+    background-color: #f4f1ed;
+    border: 1px solid #e0d9d1;
+    color: #3d352e;
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 13px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.refinement-pill:hover {
+    background-color: #e0d9d1;
+    transform: translateY(-1px);
+}
+
+.refinement-pill span {
+    margin-right: 8px;
+}
+
+.refinement-pill .remove-icon {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+
+
+
+.price-slider-modern {
+    padding: 20px 0;
+}
+
+.slider-header {
+    margin-bottom: 15px;
+}
+
+.price-range-display {
+    font-weight: 600;
+    color: #6c757d;
+    font-size: 14px;
+}
+
+.dual-slider-container {
+    position: relative;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.slider-track {
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: #e1e5e9;
+    border-radius: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.slider-progress {
+    position: absolute;
+    height: 4px;
+    background: #e53935;
+    border-radius: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.slider-input {
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: transparent;
+    pointer-events: none;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+}
+
+.slider-input::-webkit-slider-thumb {
+    pointer-events: all;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #e53935;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: all 0.2s ease;
+}
+
+.slider-input::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.slider-input::-moz-range-thumb {
+    pointer-events: all;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #e53935;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.slider-input::-moz-range-thumb:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.slider-limits {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: 11px;
+    color: #6c757d;
+}
+
+
+/* ====================================================== */
+/* == STYLING UPGRADE FOR ALGOLIA SIDEBAR FILTERS      == */
+/* ====================================================== */
+
+/* --- Category Filter (RefinementList) --- */
+
+/* Style for each filter item (e.g., "jewelry") */
+.ais-RefinementList-item {
+  margin-bottom: 8px; /* Space between items */
+}
+
+/* Style for the clickable label area */
+.ais-RefinementList-label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #fff;
+  transition: all 0.2s ease-in-out;
+}
+
+.ais-RefinementList-item:hover .ais-RefinementList-label {
+  border-color: #c77d57; /* Accent color on hover */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Hide the default browser checkbox */
+.ais-RefinementList-checkbox {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+  margin-right: 12px; /* Space between checkbox and text */
+  flex-shrink: 0;
+}
+
+/* Style for the checked state of our custom checkbox */
+.ais-RefinementList-item--selected .ais-RefinementList-checkbox {
+  background-color: #c77d57; /* Accent color when checked */
+  border-color: #c77d57;
+}
+
+/* Create the checkmark using a pseudo-element */
+.ais-RefinementList-item--selected .ais-RefinementList-checkbox::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+
+/* Text label for the category name */
+.ais-RefinementList-labelText {
+  font-size: 14px;
+  color: #3d352e; /* Deep Brown from your theme */
+  font-weight: 500;
+  flex-grow: 1; /* Pushes the count to the right */
+}
+
+/* Count badge on the right */
+.ais-RefinementList-count {
+  font-size: 12px;
+  font-weight: 600;
+  color: #a39b91; /* Muted Grey-Brown */
+  background-color: #f4f1ed; /* Paper White */
+  padding: 3px 8px;
+  border-radius: 12px; /* Make it a pill shape */
+  transition: all 0.2s ease-in-out;
+}
+
+/* Style for the selected item's count and text */
+.ais-RefinementList-item--selected .ais-RefinementList-labelText {
+  font-weight: 700;
+  color: #c77d57; /* Accent color */
+}
+
+.ais-RefinementList-item--selected .ais-RefinementList-count {
+  background-color: #c77d57;
+  color: #fff;
+}
+

@@ -1,0 +1,41 @@
+/* Remove any styling from the outer wrapper */
+.recommendations-grid {
+    margin-top: 2rem;
+}
+
+/* --- THIS IS THE FIX --- */
+/* Apply grid styling directly to the list rendered by Algolia */
+.recommendations-grid .ais-Hits-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    list-style: none; /* Remove default bullet points */
+    padding: 0;
+    margin: 0;
+}
+
+/* Responsive adjustments to match the main products grid */
+@media (max-width: 1400px) {
+    .recommendations-grid .ais-Hits-list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 1200px) {
+    .recommendations-grid .ais-Hits-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .recommendations-grid .ais-Hits-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .recommendations-grid .ais-Hits-list {
+        grid-template-columns: 1fr;
+    }
+}
+

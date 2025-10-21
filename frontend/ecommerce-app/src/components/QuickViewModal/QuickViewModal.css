@@ -1,0 +1,224 @@
+.quick-view-modal-content {
+  background: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 800px;
+  position: relative;
+}
+
+.qv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.qv-image-gallery img {
+  width: 100%;
+  border-radius: 8px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.qv-product-details h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #3d352e;
+}
+
+.qv-artisan {
+  color: #777;
+  margin-bottom: 1.5rem;
+}
+
+.qv-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.qv-price del {
+  font-size: 1rem;
+  color: #999;
+  margin-left: 0.75rem;
+}
+
+.qv-variants,
+.qv-sizes {
+  margin-bottom: 1.5rem;
+}
+
+.qv-variants label,
+.qv-sizes label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.qv-swatches,
+.qv-size-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.qv-add-to-cart-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #3d352e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 1rem;
+}
+.qv-add-to-cart-btn:hover {
+  background-color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+}
+
+.qv-add-to-cart-btn:hover:not(:disabled) {
+  background-color: #c77d57;
+}
+.qv-add-to-cart-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.qv-swatches .swatch {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #eee;
+  padding: 2px;
+  cursor: pointer;
+  overflow: hidden;
+}
+.qv-swatches .swatch img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.qv-swatches .swatch.active {
+  border-color: #3d352e;
+}
+
+.qv-size-options .size-btn {
+  min-width: 45px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+}
+.qv-size-options .size-btn.active {
+  background-color: #3d352e;
+  font-weight: bold;
+}
+.qv-size-options .size-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.qv-size-options .strikethrough {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  border-top: 1px solid #999;
+  transform: rotate(-10deg);
+}
+
+.quick-view-modal-content {
+  background: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 800px;
+  position: relative;
+}
+
+.qv-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #888;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.qv-close-btn:hover {
+  color: #333;
+  transform: scale(1.1);
+}
+
+.qv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.qv-image-gallery {
+  position: relative;
+}
+
+.qv-image-gallery img {
+  width: 100%;
+  border-radius: 8px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.qv-discount-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: #e53935;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.qv-product-details {
+  position: relative;
+}
+
+.qv-product-details h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  padding-right: 2rem;
+}
+
+.quick-view-modal-content {
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #888;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.close-btn:hover {
+  color: #333;
+  transform: scale(1.1);
+}

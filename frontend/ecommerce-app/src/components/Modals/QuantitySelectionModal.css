@@ -1,0 +1,113 @@
+/* ----- 1. FONT & COLOR VARIABLES (Optional but helpful) ----- */
+:root {
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Lato', sans-serif;
+  --color-text: #3d352e; /* Deep Brown */
+  --color-accent: #c77d57; /* Terracotta */
+  --color-background: #f4f1ed; /* Paper White */
+  --color-muted: #a39b91; /* Muted Grey-Brown */
+}
+
+.qty-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+}
+
+.qty-modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    text-align: center;
+}
+
+.qty-modal-content h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.qty-selector {
+    margin-bottom: 30px;
+}
+
+.qty-selector select {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23666' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 24px;
+    cursor: pointer;
+    outline: none;
+}
+
+.qty-selector select:focus {
+    border-color: #ff3f6c;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+.modal-actions .btn-outline,
+.modal-actions .cta-button {
+    flex: 1;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.modal-actions .btn-outline {
+    background-color: white;
+    border: 1px solid #ccc;
+    color: #555;
+}
+.modal-actions .btn-outline:hover {
+    background-color: #f4f4f4;
+    border-color: #999;
+}
+
+.modal-actions .cta-button {
+    background-color: var( --color-text);
+    color: white;
+    border: none;
+}
+.modal-actions .cta-button:hover {
+    background-color: var( --color-accent);
+}
+
+/* ... (existing styles for the modal) ... */
+
+.stock-limit-info.low-stock-warning {
+  color: #ef6c00; /* Orange/amber color for warning */
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: -10px; /* Pull it up a bit */
+  margin-bottom: 15px;
+}
+
+.stock-limit-info.low-stock-warning i {
+  margin-right: 5px;
+}

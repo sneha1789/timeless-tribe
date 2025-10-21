@@ -1,0 +1,31 @@
+.back-to-top .top-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: #ef4444;; /* Your theme color */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    animation: fadeIn 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.back-to-top .top-btn:hover {
+    background-color: #ef4444;/* Darker theme color */
+    transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
