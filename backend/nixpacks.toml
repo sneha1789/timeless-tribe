@@ -1,0 +1,30 @@
+    # Tell Railway to use the Node.js environment, version 18.
+    providers = ["node@18"]
+
+    # Tell Railway what command to run after installing dependencies.
+    [start]
+    cmd = "npm start"
+    ```
+
+#### **Step 2: Remove Old Settings from Railway**
+
+The `nixpacks.toml` file now controls the build process, so we must remove the manual commands from the Railway dashboard to avoid conflicts.
+
+1.  Go to your project on Railway.
+2.  Click on your backend service, then go to the **"Settings"** tab.
+3.  Scroll down to the **"Build"** section.
+4.  **Delete** the "**Custom Build Command**" (`npm install`) that we added previously.
+5.  Scroll down to the **"Deploy"** section.
+6.  **Delete** the "**Start Command**" (`npm start`) that we added previously.
+7.  **Verify** that the **"Root Directory"** (under the "Service" section) is still set to `/backend`.
+
+#### **Step 3: Commit and Push to GitHub**
+
+Now, commit the new `nixpacks.toml` file and push it to your GitHub repository.
+
+1.  In your terminal (inside the `timeless-tribe-fullstack` root folder), run these commands:
+    ```bash
+    git add .
+    git commit -m "FIX: Add nixpacks.toml for Railway deployment"
+    git push origin main
+    
