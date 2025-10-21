@@ -18,6 +18,23 @@ const orderRoutes = require('./routes/orderRoutes.js');
 const paymentRoutes = require('./routes/paymentRoutes.js'); 
 const contactRoutes = require('./routes/contactRoutes');
 
+const allowedOrigins = [
+    'http://localhost:3000',
+    'https://spiffy-meerkat-787941.netlify.app/' // <-- REPLACE THIS WITH YOUR ACTUAL NETLIFY URL
+];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    // allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  }
+};
+
 const app = express();
 
 const connectDB = async () => {
@@ -32,7 +49,7 @@ const connectDB = async () => {
 
 connectDB();
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use('/api/users', userRoutes);
