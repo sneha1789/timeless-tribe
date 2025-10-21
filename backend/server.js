@@ -20,7 +20,7 @@ const contactRoutes = require('./routes/contactRoutes');
 
 const allowedOrigins = [
     'http://localhost:3000',
-    'https://spiffy-meerkat-787941.netlify.app/' // <-- REPLACE THIS WITH YOUR ACTUAL NETLIFY URL
+    'https://spiffy-meerkat-787941.netlify.app' // <-- REPLACE THIS WITH YOUR ACTUAL NETLIFY URL
 ];
 
 const corsOptions = {
