@@ -1,6 +1,6 @@
 [build]
   base = "frontend/ecommerce-app"
-  command = "rm -rf node_modules package-lock.json && npm install --legacy-peer-deps && CI=false npm run build"
+  command = "cd frontend/ecommerce-app && npm install --legacy-peer-deps && CI=false npm run build"
   publish = "frontend/ecommerce-app/build"
 
 [build.environment]
@@ -8,19 +8,8 @@
   NODE_OPTIONS = "--openssl-legacy-provider"
   GENERATE_SOURCEMAP = "false"
 
-# SPA routing - redirect all routes to index.html
+# SPA routing
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-
-# Cache static assets
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Cache-Control = "public, max-age=3600"
-
-[[headers]]
-  for = "/static/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
