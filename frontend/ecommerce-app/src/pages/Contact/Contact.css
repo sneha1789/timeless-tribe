@@ -1,368 +1,180 @@
-/* ================================================= */
-/* STYLES FOR THE CONTACT PAGE              */
-/* ================================================= */
-
-/* Use the same theme variables for consistency */
-:root {
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Roboto', sans-serif; /* Using Roboto as in your head tag */
-    --color-text: #3D352E;
-    --color-accent: #C77D57;
-    --color-background: #F4F1ED;
-    --color-muted: #A39B91;
-}
-
-body {
-    background-color: var(--color-background);
-}
-
-/* --- Hero Section --- */
-/* --- Hero Section --- */
-.contact-hero {
-    position: relative;
-    height: 30vh; /* A slightly shorter height works well for solid colors */
-    display: flex;
-    flex-direction: column; /* Stack h1 and p vertically */
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-}
-
-.hero-overlay {
-    background-color: rgba(0, 0, 0, 0.4);
-    padding: 2rem;
-    border-radius: 4px;
-}
-
-.contact-hero h1 {
-    font-family: var(--font-heading);
-    font-size: 3rem;
-    margin: 0;
-}
-.contact-hero p {
-    font-size: 1.1rem;
-    opacity: 0.9;
-}
-
-/* --- Main Content Layout --- */
-.contact-content-wrapper {
+.contact-page {
     max-width: 1200px;
-    margin: -80px auto 4rem auto; /* Pulls the content up over the hero image */
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    position: relative;
-    padding: 3rem;
+    margin: 2rem auto;
+    padding: 2rem;
 }
 
+.contact-header-section {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.contact-header-section h1 {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.contact-header-section p {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- THIS IS THE MAIN FIX --- */
 .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1.5fr;
+    /* This creates two columns: the first takes 1 part of the space, the second takes 1.5 parts */
+    grid-template-columns: 1fr 1.5fr; 
     gap: 3rem;
+    background-color: #fff;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.07);
+}
+/* --- END OF MAIN FIX --- */
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
 }
 
-/* --- Left Column: Details --- */
-.contact-details h3 {
-    font-family: var(--font-heading);
-    color: var(--color-text);
-    margin-top: 0;
-    margin-bottom: 1.5rem;
-    border-bottom: 2px solid var(--color-accent);
-    padding-bottom: 0.5rem;
-    display: inline-block;
-}
-
-.info-group {
+.info-block {
     display: flex;
     align-items: flex-start;
-    margin-bottom: 1.5rem;
-}
-
-.info-group .icon {
-    font-size: 1.2rem;
-    color: var(--color-accent);
-    width: 30px;
-    margin-top: 4px;
-}
-
-.info-group strong {
-    display: block;
-    color: var(--color-text);
-    margin-bottom: 0.25rem;
-}
-
-.info-group p {
-    margin: 0;
-    color: #555;
-    line-height: 1.6;
-}
-.info-group a {
-    color: #555;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-.info-group a:hover {
-    color: var(--color-accent);
-}
-
-.map-container {
-    margin-top: 2rem;
-}
-
-
-/* --- Right Column: Form --- */
-.contact-form-section h3, .contact-form-section p {
-    text-align: center;
-}
-.contact-form-section h3 {
-     font-family: var(--font-heading);
-     color: var(--color-text);
-     margin-top: 0;
-}
-.contact-form-section p {
-    color: #666;
     margin-bottom: 2rem;
 }
 
-.form-row {
+.info-block i {
+    font-size: 1.5rem;
+    color: var(--primary-color, #c62828);
+    margin-right: 1.5rem;
+    width: 30px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.info-block h4 {
+    margin: 0 0 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.info-block p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.social-links {
+    margin-top: auto; /* Pushes to the bottom */
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
     display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    color: #555;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--primary-color, #c62828);
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+.contact-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
 }
 
-.form-group {
+.contact-form .form-group {
     margin-bottom: 1.5rem;
-    flex: 1;
 }
-.form-group label {
+
+.contact-form label {
     display: block;
     margin-bottom: 0.5rem;
-    font-weight: 500;
-    color: var(--color-text);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #444;
 }
-.form-group input, .form-group textarea {
+
+.contact-form input,
+.contact-form textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #ddd;
-    border-radius: 4px;
-    font-family: var(--font-body);
+    border-radius: 6px;
     font-size: 1rem;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-.form-group input:focus, .form-group textarea:focus {
-    outline: none;
-    border-color: var(--color-accent);
-    box-shadow: 0 0 0 3px rgba(199, 125, 87, 0.2);
+    font-family: inherit;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.gdpr-group {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color, #c62828);
+    box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.1);
+}
+
+.recaptcha-wrapper {
+    margin-top: 1rem;
     margin-bottom: 1.5rem;
 }
-.gdpr-group input {
-    margin-top: 5px;
-}
-.gdpr-group label {
-    font-size: 0.9rem;
-    color: #666;
-}
 
-.required {
-    color: var(--color-accent);
-}
-
-.submit-btn {
+.contact-form .cta-button {
     width: 100%;
     padding: 15px;
-    background-color: var(--color-text);
-    color: white;
-    border: none;
-    border-radius: 4px;
     font-size: 1rem;
-    font-weight: 500;
-    text-transform: uppercase;
     letter-spacing: 1px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-.submit-btn:hover {
-    background-color: var(--color-accent);
 }
 
-/* ================================================= */
-/* ===== ADD THIS TO YOUR contact.css FILE ===== */
-/* ================================================= */
-
-/* --- Success Popup Styles --- */
-.success-popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    
-    /* Hidden by default */
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.success-popup.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-.popup-content {
-    background: white;
-    padding: 2.5rem;
+.map-section {
+    margin-top: 4rem;
     border-radius: 8px;
-    text-align: center;
-    max-width: 400px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-    transform: scale(0.9);
-    transition: transform 0.3s ease;
-}
-.success-popup.show .popup-content {
-    transform: scale(1);
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.07);
+    border: 1px solid #eee;
 }
 
-.popup-icon {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    background-color: #28a745; /* Green for success */
-    color: white;
-    font-size: 2.5rem;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1rem auto;
-}
-
-.popup-content h3 {
-    font-family: var(--font-heading);
-    color: var(--color-text);
-    margin-bottom: 0.5rem;
-}
-
-.popup-content p {
-    color: #555;
-    margin-bottom: 1.5rem;
-}
-
-#close-popup-btn {
-    padding: 10px 20px;
-    border: none;
-    background-color: var(--color-text);
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-#close-popup-btn:hover {
-    background-color: var(--color-accent);
-}
-
-
-/* --- Submit Button "Sending" State --- */
-.submit-btn.sending {
-    background-color: var(--color-accent) !important; /* The hover color */
-    cursor: not-allowed; /* The blocking cursor */
-    pointer-events: none; /* Disables further clicks */
-}
-
-/* --- Error Popup Styles (Add this to contact.css) --- */
-.error-popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.error-popup.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-.error-popup .popup-content {
-    background: white;
-    padding: 2.5rem;
-    border-radius: 8px;
-    text-align: center;
-    max-width: 400px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-    transform: scale(0.9);
-    transition: transform 0.3s ease;
-}
-
-.error-popup.show .popup-content {
-    transform: scale(1);
-}
-
-.popup-icon-error {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    background-color: #dc3545; /* Red for error */
-    color: white;
-    font-size: 2.5rem;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1rem auto;
-}
-
-#close-error-popup-btn {
-    padding: 10px 20px;
-    border: none;
-    background-color: var(--color-text);
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#close-error-popup-btn:hover {
-    background-color: var(--color-accent);
-}
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 992px) {
     .contact-grid {
         grid-template-columns: 1fr;
-    }
-    .contact-content-wrapper {
-        margin: -60px 1rem 2rem 1rem;
+        gap: 2.5rem;
         padding: 2rem;
+    }
+    .social-links {
+        margin-top: 2rem;
     }
 }
 
-@media (max-width: 768px) {
-    .contact-hero {
-        height: 30vh;
+@media (max-width: 600px) {
+    .contact-page {
+        padding: 1rem;
     }
-    .contact-hero h1 {
-        font-size: 2rem;
+    .contact-header-section h1 {
+        font-size: 2.2rem;
     }
-    .form-row {
-        flex-direction: column;
+    .contact-form .form-row {
+        grid-template-columns: 1fr;
         gap: 0;
     }
 }
