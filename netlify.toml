@@ -6,6 +6,7 @@
 [build.environment]
   NODE_VERSION = "18"
   NODE_OPTIONS = "--openssl-legacy-provider"
+  GENERATE_SOURCEMAP = "false"
 
 # SPA routing - redirect all routes to index.html
 [[redirects]]
