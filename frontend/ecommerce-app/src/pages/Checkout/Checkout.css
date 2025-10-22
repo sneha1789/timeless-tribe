@@ -30,7 +30,7 @@
 }
 
 .cta-button {
-  background-color: #d4af37;
+  background-color: #e53935;
   color: white;
   padding: 12px 30px;
   border: none;
@@ -44,7 +44,7 @@
 }
 
 .cta-button:hover {
-  background-color: #b8941f;
+  background-color: #e53935;
 }
 
 .cta-button:disabled {
@@ -70,7 +70,7 @@
 }
 
 .progress-step.active {
-  color: #d4af37;
+  color: green;
 }
 
 .step-number {
@@ -86,7 +86,7 @@
 }
 
 .progress-step.active .step-number {
-  background-color: #d4af37;
+  background-color: green;
   color: white;
 }
 
@@ -124,15 +124,15 @@
 
 .section-header h3 {
   font-size: 1.2rem;
-  color: #333;
+  color: #333333 !important;
   margin: 0;
   font-weight: 600;
 }
 
 .btn-change-address {
   background: none;
-  border: 1px solid #d4af37;
-  color: #d4af37;
+  border: 1px solid #e53935;
+  color: #e53935;
   padding: 8px 16px;
   border-radius: 5px;
   cursor: pointer;
@@ -141,7 +141,7 @@
 }
 
 .btn-change-address:hover {
-  background-color: #d4af37;
+  background-color: #e53935;
   color: white;
 }
 
@@ -200,11 +200,11 @@
   padding: 12px;
   background-color: #f8f9fa;
   border-radius: 6px;
-  border-left: 3px solid #d4af37;
+  border-left: 3px solid #e53935;
 }
 
 .offer-item i {
-  color: #d4af37;
+  color: #e53935;
   margin-top: 2px;
 }
 
@@ -329,7 +329,7 @@
 }
 
 .item-size-value, .item-qty-value {
-  color: #d4af37;
+  color: #e53935;
   cursor: pointer;
   font-weight: 600;
 }
@@ -385,17 +385,18 @@
 
 .move-to-wishlist-btn {
   background: none;
-  border: 1px solid #d4af37;
-  color: #d4af37;
+  border: 1px solid #e53935;
+  color: #e53935;
   padding: 6px 12px;
   border-radius: 4px;
   font-size: 0.8rem;
   cursor: pointer;
   white-space: nowrap;
+  margin-top: 60px;
 }
 
 .move-to-wishlist-btn:hover {
-  background-color: #d4af37;
+  background-color: #e53935;
   color: white;
 }
 
