@@ -19,7 +19,6 @@ const Checkout = () => {
   const {
     user,
     cart,
-    fetchCart,
     setWishlist,
     addToCart,
     removeCartItem,
