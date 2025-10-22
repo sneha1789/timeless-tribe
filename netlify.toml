@@ -1,7 +1,7 @@
 [build]
   base = "frontend/ecommerce-app"
-  command = "npm install --legacy-peer-deps --silent && CI=false npm run build 2>&1"
-  publish = "frontend/ecommerce-app/build"
+  command = "npm install --legacy-peer-deps && CI=false npm run build"
+  publish = "build"
 
 [build.environment]
   NODE_VERSION = "18"
