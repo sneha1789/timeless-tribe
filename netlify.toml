@@ -1,6 +1,6 @@
 [build]
   base = "frontend/ecommerce-app"
- command = "rm -rf node_modules package-lock.json && npm install --legacy-peer-deps --force && CI=false npm run build"
+  command = "npm install --legacy-peer-deps --silent && CI=false npm run build 2>&1"
   publish = "frontend/ecommerce-app/build"
 
 [build.environment]
